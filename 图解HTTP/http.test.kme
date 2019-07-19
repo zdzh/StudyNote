@@ -1,0 +1,50 @@
+{
+    "root": {
+        "data": {
+            "id": "bszrj8m7xo80",
+            "created": 1553843454714,
+            "text": "",
+            "usecase": 4
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "bszrjahwpxs0",
+                    "created": 1553843458807,
+                    "text": "连接"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "bszrjp0rfm00",
+                            "created": 1553843490422,
+                            "text": ""
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "bszrjh0j7800",
+                    "created": 1553843472994,
+                    "text": "url"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "bszrjixd9k00",
+                    "created": 1553843477156,
+                    "text": "分支主题"
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue-compat",
+    "version": "1.4.43",
+    "id": "bszrj8m7xo80dev",
+    "parentId": "bszrj8m7xo80"
+}
