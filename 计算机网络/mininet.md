@@ -16,9 +16,10 @@
 4. 通过SSH在主机访问VM    
     在主机中输入`SSH -X [usr]@[address]`，此时会跳出警告，直接输入yes，之后输入VM账户密码即可连接到VM。其中usr是VM账户名，address是VM的ip地址。最后输入`xterm`打开控制vm的命令行窗口
 ##常用命令
-```
+```bash
 $ sudo mn     # 打开mininet，启动默认网络拓扑
 > help    # 帮助
 > <node>  ping <node>  # 节点之间ping测试
 > ping all # 所有节点之间ping测试
+> py h1.setIP("10.0.0.1")       # 修改h1的ip地址
 ```
