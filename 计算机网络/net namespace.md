@@ -170,14 +170,29 @@ root@mininet-vm:/home/mininet# ip a
   这时候如果把veth0加入n1的话会报错，因为n1里面已经有了一个veth0，可以换成其他名称的veth。
 将veth pair放如br0的指令为`ip link set dev veth3 master br0`
 4. 测试n1-n4之间的连通状态
-   发现不同namespace之间无法ping通
+   发现不同namespace之间无法ping通 。   
+   这个问题折腾了很久，后来多配置了几次有可以了。应该是之前漏掉了几个步骤，完整的步骤应该包括以下几步：
+   ```bash
+   # 启动网桥（网桥只需要启动一次就行）
+   ip link set br0 up
+   # 创建vethpair
+   ip link add br-1 type veth peer name 1-br
+   #将vethpair分配给网桥和namespace
+   ip link set br-1 master br0
+   ip link set 1-br netns n1
+   #启动veth
+   ip link set br-1 up
+   ip netns exec n1 ip link set 1-br up
+   # 为namespace中的veth设置ip
+  ip netns exec n1 ip addr add 10.0.10.2/24 dev 1-br
+   ```
+重新测试，发现三个namespace可以相互ping通。
+*上述网桥对应的veth的ip其实可以省略*
+
 5. 其拓扑结构如下
-   ![20190725193520.png](https://raw.githubusercontent.com/zdzh/pothos/master/img/20190725193520.png)
+![](https://raw.githubusercontent.com/zdzh/pothos/master/img/!%5B20190726101019.png%5D(httpsraw.githubusercontent.comzdzhpothosmasterimg20190726101019.png))
  ### namespace内部与namespace外部通信
 默认情况下，namespace网络是隔离的，namespace内无法ping通namespace外的网络，可以通过veth pair打通网络状态。
 当veth pair一端在namespace内部，一端在namespace外部时，namespace可以ping通位于外部的veth pair但无法ping同其他网络。
 ## 参考资料
 > https://cizixs.com/2017/02/10/network-virtualization-network-namespace/
-
-$ sudo ip addr add 192.168.0.193/24 dev wlan0
-$ sudo ip addr del 192.168.0.193/24 dev wlan0
