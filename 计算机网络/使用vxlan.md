@@ -1,4 +1,4 @@
-# mininet：使用vxlan连接两台虚拟机的网络topo
+# mininet：vxlan实验
 
 ## 需改虚拟机的网络适配器，将其改为host-only  
 
@@ -92,5 +92,4 @@ sh ovs-vsctl set interface vxlan type=vxlan option:remote_ip=10.0.0.7 option:key
 4. s1收到包后，检查mac地址，找出对应的h2端口映射，将包发送到h2对应的端口
 5. h2收到包后，匹配包的ip地址，ip地址一致则对包做进一步处理
 
-### 跨路由器主机通信
 

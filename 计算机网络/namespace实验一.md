@@ -191,6 +191,9 @@ root@mininet-vm:/home/mininet# ip a
 
 5. 其拓扑结构如下
 ![](https://raw.githubusercontent.com/zdzh/pothos/master/img/!%5B20190726101019.png%5D(httpsraw.githubusercontent.comzdzhpothosmasterimg20190726101019.png))
+
+
+
  ### namespace内部与namespace外部通信
 默认情况下，namespace网络是隔离的，namespace内无法ping通namespace外的网络，可以通过veth pair打通网络状态。
 当veth pair一端在namespace内部，一端在namespace外部时，namespace可以ping通位于外部的veth pair但无法ping同其他网络。
