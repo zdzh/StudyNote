@@ -1,13 +1,13 @@
-# docker（一）: 安装
+# docker使用入门（一）: 安装
 ## 开始
 
 docker是一个可以帮助开发者使用容器（containers）开发、部署和运行应用程序的平台。llinux下使用容器部署系统称为containerization。    
-container 是映像（image）的运行实例，image包括应用的源文件、运行库、配置文件等运行应用程序时所需要的一切资源。     
+container 是镜像（image）的运行实例，image包括应用的源文件、运行库、配置文件等运行应用程序时所需要的一切资源。     
 container与其他进程一样共享主机的内核。而虚拟机则是一个完整的操作系统，相当于拥有自己独立的系统内核，container比虚拟机更加轻量。  
-![](assets/2019-07-30-11-24-08.png)
+![](assets/2019-07-30-11-24-08.png)                                  
 对比container与虚拟机的结构可以发现，其在应用程序和系统之间增加docker层，而container与其一般进程行为相似。虚拟机是在硬件与操作系统之间增加了hypervisor层，hypervisor层往上是主机的操作系统和虚拟机的操作系统，主机操作系统无法之间调用虚拟机的应用程序。
 ## 安装docker
-[下载网页](https://docs.docker.com/engine/installation/)  
+[下载网页](https://docs.docker.com/engine/installation/)         
 如果之前安装过旧版本的docker，需要先卸载docker  
 ```bash
 sudo apt-get remove docker docker-engine docker.io containerd runc
